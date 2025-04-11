@@ -50,6 +50,8 @@ bloque
 
 // estructuras JS
 
+//Esto es un pequeño cambio
+
 //Condicionales
 if(true){
     console.log(nombrePagina)
