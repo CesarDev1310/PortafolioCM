@@ -1,58 +1,70 @@
-// comentario de linea
+$(document).ready(function(){
+    console.log("Pagina lista para usar");
+    procesarProyecto();
+});
 
-/*
-comentarios
-en 
-bloque
- */
 
-//Declarciones de variables
-
-    // "="" el igual es de asignación
-    //3 tipos
-    const nombreVariable = "Este texto";
-    let nombreVariableLet = "Este texto"; //Dentro de un contexto
-    var nombreVariableVar = "Este texto"; //Universal
-
-    let hola = 465465465;
-    let valorBoolean = true;
-    var nombrePagina = "Nombre del Alumno";
-
-    //Objetos
-
-    let perrito = {
-        nombre : "Perrito",
-        edad : 2,
-        color : "Blanco"
-    };
-
-    let alumno = {
-        nombre : "Edy",
-        edad : 23
-    };
-
-    let alumno_2 = {
-        nombre : "Edy",
-        edad : 23,
-        mascota: perrito,
-        diasFavoritos: ["Vienes", "Sabado"]
+let listaProyectos = [
+    {
+        idProy : 1,
+        titulo : "Mi primer Proyecto",
+        descripcion : "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
+        fechaCreacion : "01-04-2025",
+        imagen: "",
+        etiquetas : ["Ecología", "Fauna", "Lagos"]
+    },
+    {
+        idProy : 2,
+        titulo : "Mi segundo Proyecto",
+        descripcion : "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
+        fechaCreacion : "01-01-2025",
+        imagen: "",
+        etiquetas : ["Software", "Sistemas"]
+    },
+    {
+        idProy : 3,
+        titulo : "Mi tercer Proyecto",
+        descripcion : "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
+        fechaCreacion : "01-01-2024",
+        imagen: "",
+        etiquetas : ["Transporte", "Comunicaciones", "Aduanas"]
+    },
+    {
+        idProy : 4,
+        titulo : "Mi cuarto Proyecto",
+        descripcion : "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
+        fechaCreacion : "01-05-2024",
+        imagen: "",
+        etiquetas : ["Energia", "Electricidad", "Voltaje"]
     }
+];
 
+function procesarProyecto(){
 
-    //Arreglos o arrays
+    debugger
 
-    let arreglo = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes"];
-    let arreglo_2 = [1,2,3,4,5];
-    let arreglo_3 = ["Lunes", 23];
-    let arreglo_4 = [perrito, alumno];
-    let arreglo_5 = ["lunes", 23, perrito, arreglo_2];
+    //Limpiar el contenedor
+    $("#idContenedor").empty()
 
+    //Reccoriendo el arreglo de proyectos
+    listaProyectos.forEach(p => {
+        //Agregar Tarjeta de Proyecto
+        $("#idContenedor").append(
+        '<div class="card mb-3 mr-mod idInputc" style="max-width: 540px;">'+
+            '<div class="row g-0">'+
+                '<div class="col-md-4">'+
+                    '<img src="..." class="img-fluid rounded-start" alt="...">'+
+                '</div>'+
+                '<div class="col-md-8">'+
+                    '<div class="card-body">'+
+                        '<h5 class="card-title">'+p.titulo+'</h5>'+
+                        '<p class="card-text">This is a wider card with supporting text below as a natural lead-in to'+
+                            'additional content. This content is a little bit longer.</p>'+
+                        '<p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>'+
+                    '</div>'+
+                '</div>'+
+            '</div>'+
+        '</div>');
+    });
 
-// estructuras JS
-
-//Esto es un pequeño cambio
-
-//Condicionales
-if(true){
-    console.log(nombrePagina)
 }
