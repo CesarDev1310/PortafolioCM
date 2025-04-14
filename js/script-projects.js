@@ -47,7 +47,8 @@ function procesarProyecto(){
     $("#idContenedor").empty()
 
     //Reccoriendo el arreglo de proyectos
-    listaProyectos.forEach(p => {
+    //listaProyectos.forEach(p => {
+     for(let p=0; p<listaProyectos.length; p++){
         //Agregar Tarjeta de Proyecto
         $("#idContenedor").append(
         '<div class="card mb-3 mr-mod idInputc" style="max-width: 540px;">'+
@@ -57,7 +58,7 @@ function procesarProyecto(){
                 '</div>'+
                 '<div class="col-md-8">'+
                     '<div class="card-body">'+
-                        '<h5 class="card-title">'+p.titulo+'</h5>'+
+                        '<h5 class="card-title">'+listaProyectos[i].titulo+'</h5>'+
                         '<p class="card-text">This is a wider card with supporting text below as a natural lead-in to'+
                             'additional content. This content is a little bit longer.</p>'+
                         '<p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>'+
@@ -65,6 +66,6 @@ function procesarProyecto(){
                 '</div>'+
             '</div>'+
         '</div>');
-    });
+    };
 
 }
