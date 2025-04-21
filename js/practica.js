@@ -58,7 +58,7 @@ bloque
 
 //Condicionales
 if(true){
-    console.log(nombrePagina)
+    
 }
 
 
@@ -68,8 +68,23 @@ function sumar( num1, num2){
     return  num1 +  num2;
 }
 
-function sumar2(){
-    // sentencia de codigo
+function procesarArreglo(){
+    console.log("=======> Break");
+    for (let i = 0; i < arreglo.length ; i++) {
+        console.log("Días : "+arreglo[i]);
+        if (arreglo[i].toLowerCase() == "miercoles") {        
+            break;
+        }
+    }
+
+    console.log("=======>Continue")
+
+    for (let i = 0; i < arreglo.length ; i++) {    
+        if (arreglo[i].toLowerCase() == "miercoles") {        
+            continue;
+        }
+        console.log("Días : "+arreglo[i]);
+    }
 }
 
 let valor = function (){
