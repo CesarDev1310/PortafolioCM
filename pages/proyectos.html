@@ -53,8 +53,12 @@
         </nav>
     </div>
 
+    <div>
+        <a class="btn btn-sm btn-success" id="idNewProject">Nuevo Proyecto</a>
+    </div>
+
     <!--Fila 02-->
-    <div class="row mt-3" id="idContenedor2025">
+    <div class="row mt-3" id="idContenedor">
 
         <div class="card mb-3 mr-mod idInputc" style="max-width: 540px;">
             <div class="row g-0">
@@ -143,5 +147,84 @@
     <script src="../library/jquery/jquery-3.7.1.min.js"></script>
     <script src="../js/script-projects.js"></script>
 </body>
+
+<!--Modals-->
+<div class="modal fade" id="idModalNewProject" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="idModalNewProjectLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="idModalNewProjectLabel">Nuevo Proyecto</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <!--Formulario-->
+                <div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="title-addon1">Título de Proyecto</span>
+                        <input id="idTitleProject" type="text" class="form-control" aria-describedby="title-addon1">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Descripción</span>
+                        <textarea id="idDescription" class="form-control" aria-label="With textarea"></textarea>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="date-addon1">Fecha Creación</span>
+                        <input id="idDateCreated" type="text" class="form-control" aria-describedby="date-addon1">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="leader-addon1">Responsable</span>
+                        <input id="idLeader" type="text" class="form-control" aria-describedby="leader-addon1">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Presupuesto</span>
+                        <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)">
+                        <span class="input-group-text">.00</span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="basic-url" class="form-label">URL imagen</label>
+                        <div class="input-group">
+                            <span class="input-group-text" id="basic-addon3">https://example.com/imagen/</span>
+                            <input type="text" class="form-control" id="basic-url"
+                                aria-describedby="basic-addon3 basic-addon4">
+                        </div>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="Tags-addon1">Etiquetas</span>
+                        <!--<input id="idTagsProject" type="text" class="form-control" aria-describedby="Tags-addon1">-->
+
+                        <select class="form-select" multiple aria-label="Default select example"
+                            aria-describedby="Tags-addon1">
+                            <option selected>Seleccionar</option>
+                            <option value="1">Telecomunicaciones</option>
+                            <option value="2">Ambientales</option>
+                            <option value="3">Naturales</option>
+                            <option value="4">Informaticos</option>
+                            <option value="5">Legales</option>
+                            <option value="6">Transporte</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="Teams-addon1">Equipo</span>
+                        <input id="idTeamsProject" type="text" class="form-control" aria-describedby="Teams-addon1">
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-primary">Guardar Proyecto</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 </html>

@@ -1,6 +1,15 @@
 $(document).ready(function(){
     console.log("Pagina lista para usar");
     procesarProyecto();
+
+
+    $("#idNewProject").on('click',function(){
+        //Lanzar modal de formulario de registro de nuevo proyecto
+        $("#idModalNewProject").modal('show');        
+    });
+
+
+
 });
 
 let listaProyectos = [
