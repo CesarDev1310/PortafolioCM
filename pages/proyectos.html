@@ -163,8 +163,9 @@
                 <div>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="title-addon1">Título de Proyecto</span>
-                        <input id="idTitleProject" type="text" class="form-control" aria-describedby="title-addon1">
+                        <input id="idTitleProject" type="text" class="form-control" aria-describedby="title-addon1">                        
                     </div>
+                    <small style="display: none; color: red;" id="eTitleProject">Completar este campo</small>
 
                     <div class="input-group mb-3">
                         <span class="input-group-text">Descripción</span>
@@ -178,12 +179,12 @@
 
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="leader-addon1">Responsable</span>
-                        <input id="idLeader" type="text" class="form-control" aria-describedby="leader-addon1">
+                        <input id="idLeader" type="text" class="form-control" aria-describedby="leader-addon1" validate="validate">
                     </div>
 
                     <div class="input-group mb-3">
                         <span class="input-group-text">Presupuesto</span>
-                        <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)">
+                        <input id="idPrep" type="number" class="form-control" aria-label="Amount (to the nearest dollar)">
                         <span class="input-group-text">.00</span>
                     </div>
 
@@ -191,7 +192,7 @@
                         <label for="basic-url" class="form-label">URL imagen</label>
                         <div class="input-group">
                             <span class="input-group-text" id="basic-addon3">https://example.com/imagen/</span>
-                            <input type="text" class="form-control" id="basic-url"
+                            <input id="idImg" type="text" class="form-control" id="basic-url"
                                 aria-describedby="basic-addon3 basic-addon4">
                         </div>
                     </div>
@@ -199,32 +200,55 @@
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="Tags-addon1">Etiquetas</span>
                         <!--<input id="idTagsProject" type="text" class="form-control" aria-describedby="Tags-addon1">-->
-
-                        <select class="form-select" multiple aria-label="Default select example"
-                            aria-describedby="Tags-addon1">
-                            <option selected>Seleccionar</option>
+                        <select id="idTagsProject" class="form-select" multiple aria-label="Default select example" aria-describedby="Tags-addon1">
+                            <!--<option selected>Seleccionar</option>
                             <option value="1">Telecomunicaciones</option>
                             <option value="2">Ambientales</option>
                             <option value="3">Naturales</option>
                             <option value="4">Informaticos</option>
                             <option value="5">Legales</option>
-                            <option value="6">Transporte</option>
+                            <option value="6">Transporte</option>-->
                         </select>
                     </div>
 
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="Teams-addon1">Equipo</span>
-                        <input id="idTeamsProject" type="text" class="form-control" aria-describedby="Teams-addon1">
+                        <!--<input id="idTeamsProject" type="text" class="form-control" aria-describedby="Teams-addon1">-->
+                        <select id="idTeamsProject" class="form-select" multiple aria-label="Default select example"
+                            aria-describedby="Tags-addon1">
+                            <option selected>Seleccionar</option>
+                            <option value="1">Persona 01</option>
+                            <option value="2">Persona 02</option>
+                            <option value="3">Persona 03</option>
+                            <option value="4">Persona 04</option>
+                        </select>
                     </div>
 
                 </div>
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-sm btn-primary">Guardar Proyecto</button>
+                <button type="button" class="btn btn-sm btn-primary" onclick="mostrarConfirmacion()">Guardar Proyecto</button>
             </div>
         </div>
     </div>
 </div>
+
+<div class="modal" tabindex="-1" id="idModalConfirmation" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Mensaje de Confirmación</h5>          
+        </div>
+        <div class="modal-body">
+          <p>Confirmar la creación de un nuevo proyecto. ¿Desea continuar?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary">Si, continuar</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </html>

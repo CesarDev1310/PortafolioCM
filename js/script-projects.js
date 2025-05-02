@@ -1,5 +1,6 @@
 $(document).ready(function(){
     console.log("Pagina lista para usar");
+    procesarEtiquetas();
     procesarProyecto();
 
 
@@ -11,6 +12,39 @@ $(document).ready(function(){
 
 
 });
+
+let listaEtiquetas = [
+    {
+        id: 1,
+        nombre: "Telecomunicaciones"
+    },
+    {
+        id: 2,
+        nombre: "Ambientales"
+    },
+    {
+        id: 3,
+        nombre: "Naturales"
+    },
+    {
+        id: 4,
+        nombre: "Informaticos"
+    },
+    {
+        id: 5,
+        nombre: "Legales"
+    },
+    {
+        id: 6,
+        nombre: "Transporte"
+    },
+]
+function procesarEtiquetas(){
+    $("#idTagsProject").empty();
+    listaEtiquetas.forEach(etiqueta => {
+        $("#idTagsProject").append('<option value="'+etiqueta.id+'">'+etiqueta.nombre+'</option>');
+    });
+}
 
 let listaProyectos = [
     {
@@ -79,4 +113,57 @@ function procesarProyecto(){
         $("#idContenedor").append();
     };*/
 
+}
+
+
+function mostrarConfirmacion(){    
+    if (validarFormulario()) {
+        $("#idModalConfirmation").modal('show');
+    }else{
+        alert("Completa el formulario");
+    }    
+}
+
+
+function validarFormulario(){
+    let validacion = true;
+
+    //validacion cada input
+
+    let vTitulo = $("#idTitleProject").val();
+    if (vTitulo == undefined  || vTitulo == null || vTitulo.trim() == "") {
+        validacion = false;
+        //$("#eTitleProject").attr('display: block');
+    }
+
+    let vDescripcion = $("#idDescription").val();
+    if (vDescripcion == undefined  || vDescripcion == null || vDescripcion.trim() == "") {
+        validacion = false;
+    }
+
+    let vFecha = $("#idDateCreated").val();
+    if (vFecha == undefined  || vFecha == null || vFecha.trim() == "") {
+        validacion = false;
+    }
+
+    let vResponsable = $("#idLeader").val();
+    if (vResponsable == undefined  || vResponsable == null || vResponsable.trim() == "") {
+        validacion = false;
+    }
+
+    let vPresupuesto = $("#idPrep").val();
+    if (vPresupuesto == undefined  || vPresupuesto == null || vPresupuesto.trim() == "") {
+        validacion = false;
+    }
+    
+    let vImagen = $("#idImg").val();
+    if (vImagen == undefined  || vImagen == null || vImagen.trim() == "") {
+        validacion = false;
+    }
+
+    let vEtiquetas = $("#idTagsProject").val();
+    let vEquipo = $("#idTeamsProject").val();
+
+
+    return validacion;
 }
