@@ -1,17 +1,46 @@
 $(document).ready(function(){
     console.log("Pagina lista para usar");
+    procesarEquipos();
     procesarEtiquetas();
-    procesarProyecto();
 
+    procesarProyecto();
 
     $("#idNewProject").on('click',function(){
         //Lanzar modal de formulario de registro de nuevo proyecto
         $("#idModalNewProject").modal('show');        
     });
 
-
-
 });
+
+let listaEquipos = [
+    {
+        id: "E01",
+        nombre: "Persona 01"
+    },
+    {
+        id: "E02",
+        nombre: "Persona 02"
+    },
+    {
+        id: "E03",
+        nombre: "Persona 03"
+    },
+    {
+        id: "E04",
+        nombre: "Persona 04"
+    },
+    {
+        id: "E05",
+        nombre: "Persona 05"
+    }
+]
+
+function procesarEquipos(){
+    $("#idTeamsProject").empty();
+    listaEquipos.forEach(etiqueta => {
+        $("#idTeamsProject").append('<option value="'+etiqueta.id+'">'+etiqueta.nombre+'</option>');
+    });
+}
 
 let listaEtiquetas = [
     {
@@ -39,6 +68,7 @@ let listaEtiquetas = [
         nombre: "Transporte"
     },
 ]
+
 function procesarEtiquetas(){
     $("#idTagsProject").empty();
     listaEtiquetas.forEach(etiqueta => {
@@ -124,6 +154,37 @@ function mostrarConfirmacion(){
     }    
 }
 
+function guardarInformacion(){
+    let nuevoProyecto = {
+        idProy : listaProyectos.length + 1,
+        titulo : $("#idTitleProject").val(),
+        descripcion : $("#idDescription").val(),
+        fechaCreacion : $("#idDateCreated").val(),
+        responsable: $("#idLeader").val(),
+        equipo: $("#idTeamsProject").val(),
+        presupuesto: parseFloat($("#idPrep").val()),
+        imagen: $("#idImg").val(),
+        etiquetas : $("#idTagsProject").val()
+    };
+
+    listaProyectos.push(nuevoProyecto);
+
+    procesarProyecto();
+
+    $("#idModalConfirmation").modal('hide');
+    $("#idModalNewProject").modal('hide');
+
+    //Limpiando Inputs
+    $("#idTitleProject").val('');
+    $("#idDescription").val('');
+    $("#idDateCreated").val('');
+    $("#idLeader").val('');
+    $("#idTeamsProject").val('');
+    parseFloat($("#idPrep").val(undefined));
+    $("#idImg").val('');
+    $("#idTagsProject").val('');   
+}
+
 
 function validarFormulario(){
     let validacion = true;
@@ -162,8 +223,14 @@ function validarFormulario(){
     }
 
     let vEtiquetas = $("#idTagsProject").val();
-    let vEquipo = $("#idTeamsProject").val();
+    if (vEtiquetas == null || vEtiquetas.length == 0 ) {
+        validacion = false;
+    }
 
+    let vEquipo = $("#idTeamsProject").val();
+    if (vEquipo == null || vEquipo.length == 0 ) {
+        validacion = false;
+    }
 
     return validacion;
 }
