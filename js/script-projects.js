@@ -3,7 +3,10 @@ $(document).ready(function(){
     procesarEquipos();
     procesarEtiquetas();
 
+    listaProyectosAux = listaProyectos;
     procesarProyecto();
+
+    obtenerParametro();
 
     $("#idNewProject").on('click',function(){
         //Lanzar modal de formulario de registro de nuevo proyecto
@@ -114,13 +117,15 @@ let listaProyectos = [
     }
 ];
 
+let listaProyectosAux = [];
+
 function procesarProyecto(){
     debugger
     //Limpiar el contenedor
     $("#idContenedor").empty();
-    
+
     //Reccoriendo el arreglo de proyectos
-    listaProyectos.forEach(p => {
+    listaProyectosAux.forEach(p => {
         $("#idContenedor").append(
         '<div class="card mb-3 mr-mod idInputc" style="max-width: 540px;">'+
             '<div class="row g-0">'+
@@ -137,11 +142,6 @@ function procesarProyecto(){
             '</div>'+
         '</div>');
     });
-    /*
-    for(let p=0; p<listaProyectos.length; p++){
-        //Agregar Tarjeta de Proyecto
-        $("#idContenedor").append();
-    };*/
 
 }
 
@@ -233,4 +233,13 @@ function validarFormulario(){
     }
 
     return validacion;
+}
+
+
+function obtenerParametro(){    
+    const valor = window.atob(window.location.search.split('?')[1]);
+    let vValor = valor.split('valor=')[1];
+    $("#idBuscar").val(vValor);
+    listaProyectosAux = listaProyectos.filter(proy => proy.titulo.toLowerCase().includes(vValor.toLowerCase()));
+    procesarProyecto();
 }
